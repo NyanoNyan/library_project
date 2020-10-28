@@ -18,10 +18,11 @@ function collectData(e){
     // Get the details form form submission
     let author = document.getElementById('author').value;
     let title = document.getElementById('title').value;
-
+    let pages = document.getElementById('pages').value;
     
     let p1 = document.createElement('p');
     let p2 = document.createElement('p');
+    let p3 = document.createElement('p');
     let book_p = document.createElement('p');
 
     // Adding the div for the box
@@ -33,18 +34,23 @@ function collectData(e){
 
     div.className = "box-hold";
 
-    p1.className = 'author-val';
-    p2.className = 'title-val';
+    p1.className = 'title-val';
+    p2.className = 'author-val';
+    p3.className = 'pages-val';
 
     // Add author, title and book to each p element
-    p1.appendChild(document.createTextNode(`Author: ${author}`));
-    p2.appendChild(document.createTextNode(`Title: ${title}`));
+
+    p1.appendChild(document.createTextNode(`Title: ${title}`));
+    p2.appendChild(document.createTextNode(`Author: ${author}`));
+    p3.appendChild(document.createTextNode(`Pages: ${pages}`));
+
     book_p.appendChild(document.createTextNode('Book')) 
     buttonT.appendChild(document.createTextNode('Delete Book'));
     
     div.appendChild(book_p);
     div.appendChild(p1);
     div.appendChild(p2);
+    div.appendChild(p3);
     div.appendChild(buttonT);
     
 
