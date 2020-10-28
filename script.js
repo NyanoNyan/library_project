@@ -1,12 +1,14 @@
 
 // Store all the books (Global variable)
-myLibrary = [];
+let myLibrary = [];
 
 // Listening to sumbmission of forms for the book details
 let form1 = document.getElementById('form-1');
 let container2 = document.getElementById('container2');
 
+
 form1.addEventListener('submit', collectData);
+container2.addEventListener('click', deleteBook);
 
 
 function collectData(e){
@@ -25,6 +27,9 @@ function collectData(e){
     // Adding the div for the box
     let div = document.createElement('div');
     // let br = document.createElement('br')
+    let buttonT = document.createElement('button');
+
+    buttonT.className = "delete-button"
 
     div.className = "box-hold";
 
@@ -34,17 +39,19 @@ function collectData(e){
     // Add author, title and book to each p element
     p1.appendChild(document.createTextNode(`Author: ${author}`));
     p2.appendChild(document.createTextNode(`Title: ${title}`));
-    book_p.appendChild(document.createTextNode('Book'))   
+    book_p.appendChild(document.createTextNode('Book')) 
+    buttonT.appendChild(document.createTextNode('Delete Book'));
     
     div.appendChild(book_p);
     div.appendChild(p1);
     div.appendChild(p2);
+    div.appendChild(buttonT);
     
 
     // container2.appendChild(br)
     container2.appendChild(div);
 
-    myLibrary = addBook(title, author);
+    myLibrary.push(addBook(title, author));
 }
 
 
@@ -54,6 +61,15 @@ function addBook(title, author) {
     library = [{'title':title, 'author':author}];
 
     return library;
+}
+
+function deleteBook(e) {
+    if(e.target.classList.contains('delete-button')) {
+        if(confirm('Are you sure you want to delete this?')) {
+            let div = e.target.parentNode;
+            container2.removeChild(div);
+        }
+    }
 }
 
 // myLibrary = addBook('The way', 'Lue');
