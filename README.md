@@ -2,4 +2,4 @@
 
 Add your books away!
 
-https://nyanonyan.github.io/library_project/
+<a href"https://nyanonyan.github.io/library_project/">Click me to go an adventure!</a>
